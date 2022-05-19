@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph.xml"
+    app:startDestination="@id/recyclerViewFragment">
+
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.example.feli.fragments.RecyclerViewFragment"
+        android:label="recycler_view_fragment"
+        tools:layout="@layout/recycler_view_fragment" >
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_feliInfoFragment"
+            app:destination="@id/feliInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feliInfoFragment"
+        android:name="com.example.feli.fragments.FeliInfoFragment"
+        android:label="feli_info_fragment"
+        tools:layout="@layout/feli_info_fragment" >
+        <argument
+            android:name="FeliInfo"
+            app:argType="com.example.feli.feli" />
+    </fragment>
+</navigation>
