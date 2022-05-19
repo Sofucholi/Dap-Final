@@ -7,24 +7,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.feli.R
-import com.example.feli.feli
+import com.example.feli.Persona
 
-class feliAdapter (var datos:List<feli>,var Onclick : (Int) -> Unit,var context: Context): RecyclerView.Adapter<feliAdapter.ViewHolder>(){
+class feliAdapter (var datos:List<Persona>,var Onclick : (Int) -> Unit,var context: Context): RecyclerView.Adapter<feliAdapter.ViewHolder>(){
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var itemName: TextView
-        var itemFachaMeter: ProgressBar
-        var itemPhoto:ImageView
-        init {
-            itemName = itemView.findViewById(R.id.NameTxt)
-            itemFachaMeter = itemView.findViewById(R.id.fachaMeter)
-            itemPhoto = itemView.findViewById(R.id.MainImageView)
-
-        }
+        var itemName: TextView = itemView.findViewById(R.id.NameTxt)
+        var itemPhoto:ImageView = itemView.findViewById(R.id.MainImageView)
+        var itemCard:CardView = itemView.findViewById(R.id.CardView)
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
 
@@ -34,10 +29,13 @@ class feliAdapter (var datos:List<feli>,var Onclick : (Int) -> Unit,var context:
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        var feli = datos[i]
-        viewHolder.itemName.text = feli.tipo
-        Glide.with(context).load(feli.Profile).centerInside().into(viewHolder.itemPhoto)
-        viewHolder.itemFachaMeter.progress = feli.facha
+        var persona = datos[i]
+        viewHolder.itemName.text = persona.Nombre
+        Glide.with(context).load(persona.url).centerInside().circleCrop().into(viewHolder.itemPhoto)
+        viewHolder.itemCard.setOnClickListener {
+            Onclick(i)
+        }
+
     }
     override fun getItemCount(): Int {
         return datos.size

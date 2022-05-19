@@ -5,4 +5,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class feli(var facha:Int, var tipo:String, var habilidadesEspeciales:List<String>, var Profile: String):Parcelable
+class Persona(var Nombre:String, var Edad:String, var curso:String,var descripcion:String, var url: String):Parcelable

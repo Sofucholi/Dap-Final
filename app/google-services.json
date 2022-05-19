@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1059657638363",
+    "project_id": "personasbd",
+    "storage_bucket": "personasbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059657638363:android:d2a3ed44058d4fc6a387fe",
+        "android_client_info": {
+          "package_name": "com.example.feli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059657638363-s6hmacqbpk8p143jh0p7coid1rsca7f0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuSE8olDrh_qo1BUNuWwtEWKrk8z-Mlmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059657638363-s6hmacqbpk8p143jh0p7coid1rsca7f0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

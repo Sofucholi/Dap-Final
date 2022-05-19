@@ -21,6 +21,6 @@
         tools:layout="@layout/feli_info_fragment" >
         <argument
             android:name="FeliInfo"
-            app:argType="com.example.feli.feli" />
+            app:argType="com.example.feli.Persona" />
     </fragment>
 </navigation>
