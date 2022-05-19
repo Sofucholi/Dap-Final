@@ -32,7 +32,7 @@ class RecyclerViewFragment : Fragment() {
     lateinit var v: View
     lateinit var recyclerView: RecyclerView
     lateinit var db: FirebaseFirestore
-    var PersonaList: MutableList<Persona> = mutableListOf(Persona("","","","",""))
+    var PersonaList: MutableList<Persona> = mutableListOf(Persona("", "", "", "", ""))
 
     companion object {
         fun newInstance() = RecyclerViewFragment()
@@ -53,15 +53,23 @@ class RecyclerViewFragment : Fragment() {
                 for (document in result) {
                     PersonaList.add(
                         Persona(
-                            document.get("nombre").toString(),
-                            document.get("edad").toString(),
-                            document.get("curso").toString(),
-                            document.get("Descripcion").toString(),
-                            generateUrl(document.get("url").toString())
+                            document.data.get("nombre").toString(),
+                            document.data.get("edad").toString(),
+                            document.data.get("curso").toString(),
+                            document.data.get("Descripcion").toString(),
+                            generateUrl(document.data.get("url").toString())
                         )
                     )
-
                 }
+                recyclerView.adapter =
+                    feliAdapter(PersonaList, context = requireContext(), Onclick = {
+                        var action =
+                            RecyclerViewFragmentDirections.actionRecyclerViewFragmentToFeliInfoFragment(
+                                PersonaList[it]
+                            )
+                        findNavController().navigate(action)
+                    })
+                recyclerView.layoutManager = LinearLayoutManager(MainActivity())
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
@@ -74,7 +82,9 @@ class RecyclerViewFragment : Fragment() {
     override fun onStart() {
         recyclerView.adapter = feliAdapter(PersonaList, context = requireContext(), Onclick = {
             var action =
-                RecyclerViewFragmentDirections.actionRecyclerViewFragmentToFeliInfoFragment(PersonaList[it])
+                RecyclerViewFragmentDirections.actionRecyclerViewFragmentToFeliInfoFragment(
+                    PersonaList[it]
+                )
             findNavController().navigate(action)
         })
         recyclerView.layoutManager = LinearLayoutManager(MainActivity())
