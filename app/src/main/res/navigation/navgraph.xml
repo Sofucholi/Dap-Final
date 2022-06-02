@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_recyclerViewFragment_to_feliInfoFragment"
             app:destination="@id/feliInfoFragment" />
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_addPersonFragment"
+            app:destination="@id/addPersonFragment" />
     </fragment>
     <fragment
         android:id="@+id/feliInfoFragment"
@@ -23,4 +26,9 @@
             android:name="FeliInfo"
             app:argType="com.example.feli.Persona" />
     </fragment>
+    <fragment
+        android:id="@+id/addPersonFragment"
+        android:name="com.example.feli.fragments.AddPersonFragment"
+        android:label="fragment_add_person"
+        tools:layout="@layout/fragment_add_person" />
 </navigation>

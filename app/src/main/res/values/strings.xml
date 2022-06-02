@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Feli</string>
+    <string name="app_name">Lista de personas</string>
+    <string name="Email">Email</string>
+    <string name="nombre">nombre</string>
+    <string name="edad">edad</string>
+    <string name="curso">curso</string>
+    <string name="Descripcion">Descripcion</string>
 </resources>

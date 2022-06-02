@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +34,7 @@ class RecyclerViewFragment : Fragment() {
     lateinit var v: View
     lateinit var recyclerView: RecyclerView
     lateinit var db: FirebaseFirestore
+    lateinit var ButtonPlus:com.google.android.material.floatingactionbutton.FloatingActionButton
     var PersonaList: MutableList<Persona> = mutableListOf(Persona("", "", "", "", ""))
 
     companion object {
@@ -76,6 +79,7 @@ class RecyclerViewFragment : Fragment() {
             }
         v = inflater.inflate(R.layout.recycler_view_fragment, container, false)
         recyclerView = v.findViewById<RecyclerView>(R.id.feliRecyclerView)
+        ButtonPlus = v.findViewById(R.id.floating_action_button)
         return v
     }
 
@@ -85,8 +89,13 @@ class RecyclerViewFragment : Fragment() {
                 RecyclerViewFragmentDirections.actionRecyclerViewFragmentToFeliInfoFragment(
                     PersonaList[it]
                 )
-            findNavController().navigate(action)
+            v.findNavController().navigate(action)
         })
+
+        ButtonPlus.setOnClickListener {
+            var action = RecyclerViewFragmentDirections.actionRecyclerViewFragmentToAddPersonFragment()
+            v.findNavController().navigate(action)
+        }
         recyclerView.layoutManager = LinearLayoutManager(MainActivity())
         super.onStart()
     }

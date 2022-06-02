@@ -11,5 +11,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/feliRecyclerView"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        app:fabCustomSize="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Mas"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
 
 </RelativeLayout>
