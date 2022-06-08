@@ -8,13 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.feli.Persona
 import com.example.feli.R
 import com.example.feli.viewModel.FeliInfoViewModel
 
-class FeliInfoFragment : Fragment() {
+class UserInfoFragment : Fragment() {
 
 
     lateinit var v:View
@@ -26,7 +25,7 @@ class FeliInfoFragment : Fragment() {
     lateinit var userInfo:Persona
 
     companion object {
-        fun newInstance() = FeliInfoFragment()
+        fun newInstance() = UserInfoFragment()
     }
 
     private lateinit var viewModel: FeliInfoViewModel
@@ -35,13 +34,13 @@ class FeliInfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        v = inflater.inflate(R.layout.feli_info_fragment, container, false)
+        v = inflater.inflate(R.layout.user_info_fragment, container, false)
         NameTxt = v.findViewById(R.id.NameTxt)
         EdadTxt = v.findViewById(R.id.EdadTxt)
         CursoTxt = v.findViewById(R.id.CursoTxt)
         DescriptionTxt = v.findViewById(R.id.DescriptionTxt)
         MainImageView = v.findViewById(R.id.MainImageView)
-        userInfo = FeliInfoFragmentArgs.fromBundle(requireArguments()).feliInfo
+        userInfo = UserInfoFragmentArgs.fromBundle(requireArguments()).personaInfo
         return v
     }
 

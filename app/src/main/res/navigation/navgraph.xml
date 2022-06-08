@@ -11,24 +11,24 @@
         android:label="recycler_view_fragment"
         tools:layout="@layout/recycler_view_fragment" >
         <action
-            android:id="@+id/action_recyclerViewFragment_to_feliInfoFragment"
-            app:destination="@id/feliInfoFragment" />
-        <action
             android:id="@+id/action_recyclerViewFragment_to_addPersonFragment"
             app:destination="@id/addPersonFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/feliInfoFragment"
-        android:name="com.example.feli.fragments.FeliInfoFragment"
-        android:label="feli_info_fragment"
-        tools:layout="@layout/feli_info_fragment" >
-        <argument
-            android:name="FeliInfo"
-            app:argType="com.example.feli.Persona" />
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPersonFragment"
         android:name="com.example.feli.fragments.AddPersonFragment"
         android:label="fragment_add_person"
         tools:layout="@layout/fragment_add_person" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.feli.fragments.UserInfoFragment"
+        android:label="user_info_fragment"
+        tools:layout="@layout/user_info_fragment" >
+        <argument
+            android:name="personaInfo"
+            app:argType="com.example.feli.Persona" />
+    </fragment>
 </navigation>

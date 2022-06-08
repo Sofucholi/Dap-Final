@@ -1,6 +1,5 @@
 package com.example.feli.fragments
 
-import android.app.Person
 import android.content.ContentValues.TAG
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.feli.MainActivity
 import com.example.feli.Persona
 import com.example.feli.R
-import com.example.feli.adapters.feliAdapter
+import com.example.feli.adapters.UserAdapter
 import com.example.feli.viewModel.RecyclerViewViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -65,9 +63,9 @@ class RecyclerViewFragment : Fragment() {
                     )
                 }
                 recyclerView.adapter =
-                    feliAdapter(PersonaList, context = requireContext(), Onclick = {
+                    UserAdapter(PersonaList, context = requireContext(), Onclick = {
                         var action =
-                            RecyclerViewFragmentDirections.actionRecyclerViewFragmentToFeliInfoFragment(
+                            RecyclerViewFragmentDirections.actionRecyclerViewFragmentToUserInfoFragment(
                                 PersonaList[it]
                             )
                         findNavController().navigate(action)
@@ -84,9 +82,9 @@ class RecyclerViewFragment : Fragment() {
     }
 
     override fun onStart() {
-        recyclerView.adapter = feliAdapter(PersonaList, context = requireContext(), Onclick = {
+        recyclerView.adapter = UserAdapter(PersonaList, context = requireContext(), Onclick = {
             var action =
-                RecyclerViewFragmentDirections.actionRecyclerViewFragmentToFeliInfoFragment(
+                RecyclerViewFragmentDirections.actionRecyclerViewFragmentToUserInfoFragment(
                     PersonaList[it]
                 )
             v.findNavController().navigate(action)
