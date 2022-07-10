@@ -80,12 +80,28 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/UrlTxtField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/DescripcionTxtField"
+        android:hint="url"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmar"
-        android:layout_below="@id/DescripcionTxtField"
-        android:layout_alignEnd="@id/DescripcionTxtField"
+        android:layout_below="@id/UrlTxtField"
+        android:layout_alignEnd="@id/UrlTxtField"
         android:layout_marginTop="30dp"
         android:id="@+id/buttonConfirmar"
         />

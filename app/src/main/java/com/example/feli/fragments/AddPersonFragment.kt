@@ -29,6 +29,7 @@ class AddPersonFragment : Fragment() {
     lateinit var EdtTxtEdad:com.google.android.material.textfield.TextInputLayout
     lateinit var EdtTxtCurso:com.google.android.material.textfield.TextInputLayout
     lateinit var EdtTxtDescription:com.google.android.material.textfield.TextInputLayout
+    lateinit var EdtTxtUrl:com.google.android.material.textfield.TextInputLayout
     lateinit var ButtonConfirmar: Button
     lateinit var db: FirebaseFirestore
 
@@ -41,6 +42,7 @@ class AddPersonFragment : Fragment() {
         EdtTxtEdad = v.findViewById(R.id.EdadTxtField)
         EdtTxtCurso = v.findViewById(R.id.CursoTxtField)
         EdtTxtDescription = v.findViewById(R.id.DescripcionTxtField)
+        EdtTxtUrl = v.findViewById(R.id.UrlTxtField)
         ButtonConfirmar = v.findViewById(R.id.buttonConfirmar)
         return v
     }
@@ -52,10 +54,11 @@ class AddPersonFragment : Fragment() {
             var curso = EdtTxtCurso.editText?.text?.toString()?.replace(Regex(" "), "") ?: ""
             var Descripcion =
                 EdtTxtDescription.editText?.text?.toString()?.replace(Regex(" "), "") ?: ""
-            var persona = Persona(nombre, edad, curso, Descripcion, "")
+            var Url =
+                EdtTxtUrl.editText?.text?.toString()?.replace(Regex(" "), "") ?: ""
+            var persona = Persona(nombre, edad, curso, Descripcion, Url)
             db = Firebase.firestore
             db.collection("personas").add(persona)
-
         }
         super.onStart()
     }
